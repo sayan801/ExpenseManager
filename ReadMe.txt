@@ -1,0 +1,1 @@
+Expense manager keeps tracks of expenses through desktop and mobile devices..
