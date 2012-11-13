@@ -1,0 +1,30 @@
+﻿<Window x:Class="ExpenseManagerGUI.NewDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="New Details" Height="300" Width="600">
+    <DockPanel>
+        <UniformGrid DockPanel.Dock="Top">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Enter Informations</Label>
+        </UniformGrid>
+        <UniformGrid DockPanel.Dock="Bottom" Columns="2">
+            <Button Name="cancleBtn" Margin="5" Click="cancleBtn_Click">Cancle</Button>
+            <Button Name="submitBtn" Margin="5" Click="submitBtn_Click">Submit</Button>
+        </UniformGrid>
+        <UniformGrid DockPanel.Dock="Top" Columns="2" Margin="20">
+            <Label Content="Type :" Name="typeLabel" VerticalAlignment="Center"/>
+            <ComboBox Name="typeCB" SelectedIndex="1" VerticalAlignment="Center">
+                <ComboBoxItem>Credit</ComboBoxItem>
+                <ComboBoxItem>Expense</ComboBoxItem>
+            </ComboBox>
+            <Label Content="Date :" Name="dateLabel" VerticalAlignment="Center"/>
+            <DatePicker VerticalAlignment="Center" Name="dateDP"></DatePicker>
+            <Label Content="Descritption :" Name="descritptionLabel" VerticalAlignment="Center"/>
+            <TextBox VerticalAlignment="Center" Name="descritptionTB"></TextBox>
+            <Label Content="Amount :" Name="amountLabel"  VerticalAlignment="Center"/>
+            <TextBox VerticalAlignment="Center" Name="amountTB"></TextBox>
+        </UniformGrid>
+
+    </DockPanel>
+</Window>
+
+

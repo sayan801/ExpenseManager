@@ -1,0 +1,98 @@
+﻿<Window xmlns:my="clr-namespace:ExpenseManagerGUI"  x:Class="ExpenseManagerGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="Expense Manager" Height="600" Width="800" WindowState="Maximized">
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="file" >
+                <MenuItem Name="newDetailsMtn" Header="New Details" Click="newDetailsMBtn_Click"></MenuItem>
+                <MenuItem Name="saveMonthlyReportMenuItem" Header="Save Monthly Report" Click="saveMonthlyReportMenuItem_Click"></MenuItem>
+                <MenuItem Name="closeMenuItem" Header="Exit" Click="closeMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit" >
+                <MenuItem Name="changeNameMenuItem" Header="Change Name" Click="changeNameMenuItem_Click"></MenuItem>
+                <MenuItem Name="changeSalaryDateMenuItem" Header="Change Salary Date" Click="changeSalaryDateMenuItem_Click"></MenuItem>
+                <MenuItem Name="changeUnitMenuItem" Header="Change Money Unit" Click="changeUnitMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem Name="calMenuItem" Click="calMenuItem_Click" Header="Calender"></MenuItem>
+                <MenuItem Name="gridMenuItem" Click="gridMenuItem_Click" Header="Grid"></MenuItem>
+                <MenuItem Name="listMenuItem" Click="listMenuItem_Click" Header="List"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Tools">
+                <MenuItem Name="webSyncMenuItem" Click="webSyncMenuItem_Click" Header="Sync to Web"></MenuItem>
+                <MenuItem Name="mobSyncMenuItem" Click="mobSyncMenuItem_Click" Header="Sync to Mobile"></MenuItem>
+                <MenuItem Name="localBackupMenuItem" Click="localBackupMenuItem_Click" Header="Save Local backup"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About" Name="abtMenuItem" Click="abtMenuItem_Click"></MenuItem>
+                <MenuItem Header="Help" Name="helpMenuItem"></MenuItem>
+            </MenuItem>
+
+        </Menu>
+        <ToolBar Height="40" DockPanel.Dock="Top">
+            <Button Name="newDetailsBtn" Click="newDetailsBtn_Click">New Details</Button>
+            <Separator></Separator>
+            <Button Name="calculatorBtn" Click="calculatorBtn_Click">Calculator</Button>
+            <Separator></Separator>
+            <Button Click="calMenuItem_Click">Calender view</Button>
+            <Separator></Separator>
+            <Button Click="gridMenuItem_Click">Grid View</Button>
+            <Separator></Separator>
+            <Button Click="listMenuItem_Click">List View</Button>
+            <Separator></Separator>
+            <Button> Mobile Sync</Button>
+            <Separator></Separator>
+            <Button>Web Sync</Button>
+            <Separator></Separator>
+            <Button>Save Monthly Report</Button>
+        </ToolBar>
+        <StatusBar DockPanel.Dock="Bottom">
+            <Label>Not connected to Internet</Label>
+            
+            <Button Click="Button_Click">Close</Button>
+        </StatusBar>
+        <UniformGrid DockPanel.Dock="Top" Rows="1">
+            <Label></Label>
+            <Label></Label>
+            
+            <Button Name="viewBtn" Click="viewBtn_Click">View Details</Button>
+            <Label></Label>
+            <Button Name="editBtn">Edit Details</Button>
+            <Label></Label>
+            <Button Name="deleteBTN">Delete Details</Button>
+            <Label></Label>
+            <Label></Label>
+        </UniformGrid>
+            <TabControl Name="viewTabControl" TabStripPlacement="Right" SelectedIndex="2">
+            <TabItem Header="Calender" Name="calenderTabItem">
+                <my:CalenderControl />
+            </TabItem>
+            <TabItem Header="Grid" Name="gridTabitem">
+               <my:GridControl />
+            </TabItem>
+            <TabItem Header="List" Name="listTabItem">
+
+                <ListView Background="DarkOliveGreen" Name="listDataLV" Foreground="White" ItemsSource="{Binding excreditCollection}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="120" Header="ID"  DisplayMemberBinding="{Binding id}"  />
+                            <GridViewColumn Width="100" Header="Date"  DisplayMemberBinding="{Binding date}"  />
+                            <GridViewColumn Width="120" Header="Type"  DisplayMemberBinding="{Binding type}"  />
+                            <GridViewColumn Width="250" Header="Description"  DisplayMemberBinding="{Binding description}"  />
+                            <GridViewColumn Width="100" Header="Amount"  DisplayMemberBinding="{Binding amount}"  />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <!--<my:ListControl />-->
+            </TabItem>
+        </TabControl>
+
+    </DockPanel>
+
+
+
+
+</Window>
