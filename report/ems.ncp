@@ -1,0 +1,362 @@
+<Project>
+  <Name>ems-classes</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>ExpenseManagerGUI.exe</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>MainWindow</Name>
+        <Access>Public</Access>
+        <Location left="648" top="267" />
+        <Size width="162" height="876" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private ObservableCollection&lt;ExpenseInfo&gt; _excreditCollection</Member>
+        <Member type="Field">internal MenuItem newDetailsMtn</Member>
+        <Member type="Field">internal MenuItem saveMonthlyReportMenuItem</Member>
+        <Member type="Field">internal MenuItem closeMenuItem</Member>
+        <Member type="Field">internal MenuItem changeNameMenuItem</Member>
+        <Member type="Field">internal MenuItem changeSalaryDateMenuItem</Member>
+        <Member type="Field">internal MenuItem changeUnitMenuItem</Member>
+        <Member type="Field">internal MenuItem calMenuItem</Member>
+        <Member type="Field">internal MenuItem gridMenuItem</Member>
+        <Member type="Field">internal MenuItem listMenuItem</Member>
+        <Member type="Field">internal MenuItem webSyncMenuItem</Member>
+        <Member type="Field">internal MenuItem mobSyncMenuItem</Member>
+        <Member type="Field">internal MenuItem localBackupMenuItem</Member>
+        <Member type="Field">internal MenuItem abtMenuItem</Member>
+        <Member type="Field">internal MenuItem helpMenuItem</Member>
+        <Member type="Field">internal Button newDetailsBtn</Member>
+        <Member type="Field">internal Button calculatorBtn</Member>
+        <Member type="Field">internal Button viewBtn</Member>
+        <Member type="Field">internal Button editBtn</Member>
+        <Member type="Field">internal Button deleteBTN</Member>
+        <Member type="Field">internal TabControl viewTabControl</Member>
+        <Member type="Field">internal TabItem calenderTabItem</Member>
+        <Member type="Field">internal TabItem gridTabitem</Member>
+        <Member type="Field">internal TabItem listTabItem</Member>
+        <Member type="Field">internal ListView listDataLV</Member>
+        <Member type="Field">private Boolean _contentLoaded</Member>
+        <Member type="Property">public ObservableCollection&lt;ExpenseInfo&gt; excreditCollection { get; }</Member>
+        <Member type="Constructor">public MainWindow()</Member>
+        <Member type="Method">private Void newDetailsMBtn_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void newDetailsBtn_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void closeMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void calMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void gridMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void listMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void abtMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void calculatorBtn_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void changeNameMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void changeSalaryDateMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void changeUnitMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void saveMonthlyReportMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void webSyncMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void mobSyncMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void localBackupMenuItem_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void Button_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void viewBtn_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">public Void InitializeComponent()</Member>
+        <Member type="Method">Void System.Windows.Markup.IComponentConnector.Connect(Int32 connectionId, Object target)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GridControl</Name>
+        <Access>Public</Access>
+        <Location left="449" top="923" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">internal UniformGrid monthGrid</Member>
+        <Member type="Field">private Boolean _contentLoaded</Member>
+        <Member type="Constructor">public GridControl()</Member>
+        <Member type="Method">public Void InitializeComponent()</Member>
+        <Member type="Method">Void System.Windows.Markup.IComponentConnector.Connect(Int32 connectionId, Object target)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NewDetailsWindow</Name>
+        <Access>Public</Access>
+        <Location left="235" top="763" />
+        <Size width="162" height="366" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">internal Button cancleBtn</Member>
+        <Member type="Field">internal Button submitBtn</Member>
+        <Member type="Field">internal Label typeLabel</Member>
+        <Member type="Field">internal ComboBox typeCB</Member>
+        <Member type="Field">internal Label dateLabel</Member>
+        <Member type="Field">internal DatePicker dateDP</Member>
+        <Member type="Field">internal Label descritptionLabel</Member>
+        <Member type="Field">internal TextBox descritptionTB</Member>
+        <Member type="Field">internal Label amountLabel</Member>
+        <Member type="Field">internal TextBox amountTB</Member>
+        <Member type="Field">private Boolean _contentLoaded</Member>
+        <Member type="Constructor">public NewDetailsWindow()</Member>
+        <Member type="Method">private Void cancleBtn_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private Void submitBtn_Click(Object sender, RoutedEventArgs e)</Member>
+        <Member type="Method">private String GenerateId()</Member>
+        <Member type="Method">public Void InitializeComponent()</Member>
+        <Member type="Method">Void System.Windows.Markup.IComponentConnector.Connect(Int32 connectionId, Object target)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>App</Name>
+        <Access>Public</Access>
+        <Location left="26" top="905" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public App()</Member>
+        <Member type="Method">public Void InitializeComponent()</Member>
+        <Member type="Method">public static Void Main()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ListControl</Name>
+        <Access>Public</Access>
+        <Location left="449" top="663" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">internal ListView listDataLV</Member>
+        <Member type="Field">private Boolean _contentLoaded</Member>
+        <Member type="Constructor">public ListControl()</Member>
+        <Member type="Method">public Void InitializeComponent()</Member>
+        <Member type="Method">Void System.Windows.Markup.IComponentConnector.Connect(Int32 connectionId, Object target)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>EMSController</Name>
+        <Access>Public</Access>
+        <Location left="266" top="267" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public ExpenseAggregator expenseController</Member>
+        <Member type="Field">public EarningAggregator earningController</Member>
+        <Member type="Field">public List&lt;ReportInfo&gt; reports</Member>
+        <Member type="Constructor">public EMSController()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ExpenseAggregator</Name>
+        <Access>Public</Access>
+        <Location left="449" top="418" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public ExpenseAggregator()</Member>
+        <Member type="Method">public Void getExpenseAggregated(UserInfo user)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>EarningAggregator</Name>
+        <Access>Public</Access>
+        <Location left="26" top="407" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public EarningAggregator()</Member>
+        <Member type="Method">public Void getEarningAggregated(UserInfo user)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CalenderControl</Name>
+        <Access>Public</Access>
+        <Location left="26" top="650" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">internal DockPanel calenderSideBar</Member>
+        <Member type="Field">internal DockPanel calenderMainViewDP</Member>
+        <Member type="Field">private Boolean _contentLoaded</Member>
+        <Member type="Constructor">public CalenderControl()</Member>
+        <Member type="Method">public Void InitializeComponent()</Member>
+        <Member type="Method">Void System.Windows.Markup.IComponentConnector.Connect(Int32 connectionId, Object target)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="5" second="6">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>expenseController</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="5" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>earningController</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>ExpenseManagerData.dll</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>ExpenseInfo</Name>
+        <Access>Public</Access>
+        <Location left="279" top="595" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public Boolean IsWithInLimit</Member>
+        <Member type="Property">public String id { get; set; }</Member>
+        <Member type="Property">public DateTime date { get; set; }</Member>
+        <Member type="Property">public ExpenseType type { get; set; }</Member>
+        <Member type="Property">public String description { get; set; }</Member>
+        <Member type="Property">public Double amount { get; set; }</Member>
+        <Member type="Constructor">public ExpenseInfo()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>EarningInfo</Name>
+        <Access>Public</Access>
+        <Location left="60" top="595" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public String id { get; set; }</Member>
+        <Member type="Property">public DateTime date { get; set; }</Member>
+        <Member type="Property">public EarningType type { get; set; }</Member>
+        <Member type="Property">public String description { get; set; }</Member>
+        <Member type="Property">public Double amount { get; set; }</Member>
+        <Member type="Constructor">public EarningInfo()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SyncInfo</Name>
+        <Access>Public</Access>
+        <Location left="767" top="595" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public String id { get; set; }</Member>
+        <Member type="Property">public DateTime date { get; set; }</Member>
+        <Member type="Property">public SyncType type { get; set; }</Member>
+        <Member type="Property">public String description { get; set; }</Member>
+        <Member type="Property">public Single size { get; set; }</Member>
+        <Member type="Constructor">public SyncInfo()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UserInfo</Name>
+        <Access>Public</Access>
+        <Location left="520" top="278" />
+        <Size width="162" height="281" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public String id { get; set; }</Member>
+        <Member type="Property">public String encryptedPassword { get; set; }</Member>
+        <Member type="Property">public String name { get; set; }</Member>
+        <Member type="Property">public DateTime doj { get; set; }</Member>
+        <Member type="Property">public String address { get; set; }</Member>
+        <Member type="Property">public String phone { get; set; }</Member>
+        <Member type="Property">public List&lt;ExpenseInfo&gt; expenses { get; set; }</Member>
+        <Member type="Property">public Double expenseLimit { get; set; }</Member>
+        <Member type="Property">public List&lt;EarningInfo&gt; earnings { get; set; }</Member>
+        <Member type="Property">public List&lt;SyncInfo&gt; syncDetails { get; set; }</Member>
+        <Member type="Property">public SessionInfo sessionDetails { get; set; }</Member>
+        <Member type="Constructor">public UserInfo()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ReportInfo</Name>
+        <Access>Public</Access>
+        <Location left="520" top="595" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public UserInfo user</Member>
+        <Member type="Property">public String id { get; set; }</Member>
+        <Member type="Property">public DateTime date { get; set; }</Member>
+        <Member type="Property">public ReportType type { get; set; }</Member>
+        <Member type="Property">public String description { get; set; }</Member>
+        <Member type="Constructor">public ReportInfo()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SessionInfo</Name>
+        <Access>Public</Access>
+        <Location left="279" top="302" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public String id { get; set; }</Member>
+        <Member type="Property">public SessionType type { get; set; }</Member>
+        <Member type="Property">public Int32 noOfloginAttempt { get; set; }</Member>
+        <Member type="Property">public Int32 maxloginAttempt { get; set; }</Member>
+        <Member type="Property">public DateTime start { get; set; }</Member>
+        <Member type="Property">public DateTime end { get; set; }</Member>
+        <Member type="Constructor">public SessionInfo()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>ExpenseType</Name>
+        <Access>Public</Access>
+        <Location left="60" top="326" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>Fixed = 0</Value>
+        <Value>Variable = 1</Value>
+        <Value>OverDraft = 2</Value>
+        <Value>Adhoc = 3</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>EarningType</Name>
+        <Access>Public</Access>
+        <Location left="767" top="323" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>Fixed = 0</Value>
+        <Value>Variable = 1</Value>
+        <Value>Adhoc = 2</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>SyncType</Name>
+        <Access>Public</Access>
+        <Location left="767" top="12" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>Web = 0</Value>
+        <Value>Mobile = 1</Value>
+        <Value>Desktop = 2</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>UserType</Name>
+        <Access>Public</Access>
+        <Location left="520" top="12" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>Admin = 0</Value>
+        <Value>Normal = 1</Value>
+        <Value>Guest = 2</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>SessionType</Name>
+        <Access>Public</Access>
+        <Location left="279" top="12" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>ValidUser = 0</Value>
+        <Value>InvalidUser = 1</Value>
+        <Value>TimeOut = 2</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>ReportType</Name>
+        <Access>Public</Access>
+        <Location left="60" top="12" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>Single = 0</Value>
+        <Value>Daily = 1</Value>
+        <Value>Weekly = 2</Value>
+        <Value>Monthly = 3</Value>
+        <Value>Quarterly = 4</Value>
+        <Value>Yearly = 5</Value>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="4" second="3">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>user</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
