@@ -24,10 +24,10 @@ namespace ExpenseManagerGUI
     {
 
 
-        ObservableCollection<ExcreditInfo> _excreditCollection = new ObservableCollection<ExcreditInfo>();
+        ObservableCollection<ExpenseInfo> _excreditCollection = new ObservableCollection<ExpenseInfo>();
 
 
-        public ObservableCollection<ExcreditInfo> excreditCollection
+        public ObservableCollection<ExpenseInfo> excreditCollection
         {
             get
             {
@@ -134,11 +134,11 @@ namespace ExpenseManagerGUI
 
         private void viewBtn_Click(object sender, RoutedEventArgs e)
         {
-            List<ExcreditInfo> excredits = ExpenseManagerDb.DbInteraction.GetAllExcreditList();
+            List<ExpenseInfo> excredits = ExpenseManagerDb.DbInteraction.GetAllExcreditList();
 
             _excreditCollection.Clear();
 
-            foreach (ExcreditInfo excredit in excredits)
+            foreach (ExpenseInfo excredit in excredits)
             {
                 _excreditCollection.Add(excredit);
             }

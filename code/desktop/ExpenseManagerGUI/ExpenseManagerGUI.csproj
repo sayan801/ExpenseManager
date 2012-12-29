@@ -80,6 +80,7 @@
     <Compile Include="CalenderControl.xaml.cs">
       <DependentUpon>CalenderControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EMSController.cs" />
     <Compile Include="GridControl.xaml.cs">
       <DependentUpon>GridControl.xaml</DependentUpon>
     </Compile>

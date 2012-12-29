@@ -6,39 +6,42 @@ using System.Text;
 namespace ExpenseManagerData
 {
 
-    enum ExpenseType
+    public enum ExpenseType
     {
-        Earning,
-        Expense
+        Fixed,
+        Variable,
+        OverDraft,
+        Adhoc
     }
 
-    enum EarningType
+    public enum EarningType
     {
-        Earning,
-        Expense
+        Fixed,
+        Variable,
+        Adhoc
     }
 
-    enum SyncType
+    public enum SyncType
     {
         Web,
         Mobile,
         Desktop
     }
 
-    enum UserType
+    public enum UserType
     {
         Admin,
         Normal,
         Guest
     }
-    enum SessionType
+    public enum SessionType
     {
         ValidUser,
         InvalidUser,
         TimeOut
     }
 
-    enum ReportType
+    public enum ReportType
     {
         Single,
         Daily,
@@ -55,13 +58,14 @@ namespace ExpenseManagerData
         public ExpenseType type { get; set; }
         public string description { get; set; }
         public double amount { get; set; }
+        public bool IsWithInLimit;
     }
 
     public class EarningInfo
     {
         public string id { get; set; }
         public DateTime date { get; set; }
-        public ExpenseType type { get; set; }
+        public EarningType type { get; set; }
         public string description { get; set; }
         public double amount { get; set; }
     }
@@ -84,19 +88,19 @@ namespace ExpenseManagerData
         public string address { get; set; }
         public string phone { get; set; }
         public List<ExpenseInfo> expenses { get; set; }
+        public double expenseLimit { get; set; }
         public List<EarningInfo> earnings { get; set; }
         public List<SyncInfo> syncDetails { get; set; }
-        public SessionInfo sessionDetails { get; set; }
-        
+        public SessionInfo sessionDetails { get; set; }        
     }
 
     public class ReportInfo
     {
         public string id { get; set; }
         public DateTime date { get; set; }
-        public SyncType type { get; set; }
+        public ReportType type { get; set; }
         public string description { get; set; }
-        public float size { get; set; }
+        public UserInfo user;
     }
 
     public class SessionInfo

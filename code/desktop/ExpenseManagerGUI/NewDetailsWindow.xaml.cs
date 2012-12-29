@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ExpenseManagerData;
 
 namespace ExpenseManagerGUI
 {
@@ -30,10 +31,10 @@ namespace ExpenseManagerGUI
 
         private void submitBtn_Click(object sender, RoutedEventArgs e)
         {
-            ExpenseManagerData.ExcreditInfo newExcredit = new ExpenseManagerData.ExcreditInfo();
+            ExpenseManagerData.ExpenseInfo newExcredit = new ExpenseManagerData.ExpenseInfo();
 
             newExcredit.id = GenerateId();
-            newExcredit.type = typeCB.Text;
+            newExcredit.type = (ExpenseType)Enum.Parse(typeof(ExpenseType), typeCB.Text, false); ;
             newExcredit.date = dateDP.SelectedDate.Value;
             newExcredit.description = descritptionTB.Text;
             newExcredit.amount = Convert.ToDouble(amountTB.Text);

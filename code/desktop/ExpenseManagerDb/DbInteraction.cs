@@ -14,12 +14,12 @@ namespace ExpenseManagerDb
 
         #region Excredit
 
-        public static int DoRegisterNewExcredit(ExcreditInfo excreditDetails)
+        public static int DoRegisterNewExcredit(ExpenseInfo excreditDetails)
         {
             return DoRegisterNewExcreditInDb(excreditDetails);
         }
 
-        private static int DoRegisterNewExcreditInDb(ExcreditInfo excreditDetails)
+        private static int DoRegisterNewExcreditInDb(ExpenseInfo excreditDetails)
         {
             int returnVal = 0;
             MySql.Data.MySqlClient.MySqlConnection msqlConnection = null;
@@ -62,14 +62,14 @@ namespace ExpenseManagerDb
             return returnVal;
         }
 
-        public static List<ExcreditInfo> GetAllExcreditList()
+        public static List<ExpenseInfo> GetAllExcreditList()
         {
             return QueryAllExcreditList();
         }
 
-        private static List<ExcreditInfo> QueryAllExcreditList()
+        private static List<ExpenseInfo> QueryAllExcreditList()
         {
-            List<ExcreditInfo> ExcreditList = new List<ExcreditInfo>();
+            List<ExpenseInfo> ExcreditList = new List<ExpenseInfo>();
             MySql.Data.MySqlClient.MySqlConnection msqlConnection = null;
 
             msqlConnection = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;user id=root;Password=" + passwordCurrent + ";database=" + dbmsCurrent + ";persist security info=False");
@@ -86,11 +86,11 @@ namespace ExpenseManagerDb
 
                 while (msqlReader.Read())
                 {
-                    ExcreditInfo Excredit = new ExcreditInfo();
+                    ExpenseInfo Excredit = new ExpenseInfo();
 
                     Excredit.id = msqlReader.GetString("id");
                     Excredit.date = msqlReader.GetDateTime("date");
-                    Excredit.type = msqlReader.GetString("type");
+                    Excredit.type = (ExpenseType)Enum.Parse(typeof(ExpenseType), msqlReader.GetString("type"), false);
                     Excredit.description = msqlReader.GetString("description");
                     Excredit.amount = msqlReader.GetDouble("amount");
 
