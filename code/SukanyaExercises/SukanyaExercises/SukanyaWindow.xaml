@@ -1,0 +1,24 @@
+﻿<Window x:Class="SukanyaExercises.SukanyaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sukanya's Baje Window" Height="401" Width="630">
+    <TabControl >
+        <TabItem Header="Button">
+            <RadioButton Content="RadioButton" Height="16" Name="radioButton1" />
+        </TabItem>
+        <TabItem Header="Richtextbox">
+            <RichTextBox Height="100" Name="richTextBox1" Width="200" />
+        </TabItem>
+        <TabItem>
+            <ProgressBar Height="10" Name="progressBar1" Width="100" />
+        </TabItem>
+        <TabItem />
+        <TabItem />
+        <TabItem />
+        <TabItem />
+        <TabItem />
+        <TabItem />
+        <TabItem />
+        <TabItem />
+    </TabControl>
+</Window>
