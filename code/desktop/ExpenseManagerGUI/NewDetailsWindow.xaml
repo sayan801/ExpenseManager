@@ -7,7 +7,7 @@
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">Enter Informations</Label>
         </UniformGrid>
         <UniformGrid DockPanel.Dock="Bottom" Columns="2">
-            <Button Name="cancleBtn" Margin="5" Click="cancleBtn_Click">Cancle</Button>
+            <Button Name="cancleBtn" Margin="5" Click="cancleBtn_Click">Cancel</Button>
             <Button Name="submitBtn" Margin="5" Click="submitBtn_Click">Submit</Button>
         </UniformGrid>
         <UniformGrid DockPanel.Dock="Top" Columns="2" Margin="20">

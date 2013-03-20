@@ -42,7 +42,11 @@ namespace ExpenseManagerGUI
         }
 
 
-
+        private void addressBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ExpenseManagerGUI.AddressBook AddressBookobj = new ExpenseManagerGUI.AddressBook();
+            AddressBookobj.Show();
+        }
         private void newDetailsMBtn_Click(object sender, RoutedEventArgs e)
         {
             //this.WindowState = System.Windows.WindowState.Minimized;
@@ -79,6 +83,11 @@ namespace ExpenseManagerGUI
         {
             viewTabControl.SelectedIndex = 2;
         }
+        private void reportMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            viewTabControl.SelectedIndex = 3;
+        }
+        
 
         private void abtMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -144,6 +153,13 @@ namespace ExpenseManagerGUI
             }
         }
 
+        private void click_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            showDetailsUG.Children.Clear();
+            for (int i = 1; i <= 30; i++)
+                showDetailsUG.Children.Add(new ShowDetails(i));
+        }
 
+        
     }
 }

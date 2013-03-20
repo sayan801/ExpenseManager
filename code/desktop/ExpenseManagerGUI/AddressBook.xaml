@@ -1,0 +1,62 @@
+﻿<Window x:Class="ExpenseManagerGUI.AddressBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddressBook" Height="374" Width="412">
+    <DockPanel>
+        <TabControl>
+            <TabItem Header="Add Contact">
+                <DockPanel LastChildFill="True">
+                    <UniformGrid DockPanel.Dock="Bottom" Rows="1">
+                        <Button>Reset</Button>
+                        <Button>Submit</Button>
+                    </UniformGrid>
+                    <UniformGrid DockPanel.Dock="Top" Columns="2">
+                        <Label>Name</Label>
+                        <TextBox></TextBox>
+                        <Label>Mobile</Label>
+                        <TextBox></TextBox>
+                        <Label>Home</Label>
+                        <TextBox></TextBox>
+                        <Label>Office</Label>
+                        <TextBox></TextBox>
+                        <Label>Address</Label>
+                        <TextBox></TextBox>
+                        <Label>Email</Label>
+                        <TextBox></TextBox>
+                        <Label>Notes</Label>
+                        <TextBox></TextBox>
+                    </UniformGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="View Contact">
+                <DockPanel LastChildFill="True">
+                    <UniformGrid DockPanel.Dock="Bottom" Rows="1">
+                        <Button>Edit</Button>
+                        <Button>Delete</Button>
+                    </UniformGrid>
+                    <UniformGrid DockPanel.Dock="Top" Rows="1">
+                        <Label>By Name</Label>
+                        <TextBox></TextBox>
+                        <Button>Search</Button>
+                    </UniformGrid>
+                    <UniformGrid DockPanel.Dock="Top">
+                        <ListView Name="contactView" HorizontalAlignment="Stretch">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="180" Header="Name" />
+                                    <GridViewColumn Width="150" Header="Mobile"  />
+                                    <GridViewColumn Width="150" Header="Home"   />
+                                    <GridViewColumn Width="150" Header="Office"   />
+                                    <GridViewColumn Width="300" Header="Address"   />
+                                    <GridViewColumn Width="130" Header="EMail"   />
+
+                                    <GridViewColumn Width="100" Header="Notes"   />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </UniformGrid>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>

@@ -7,7 +7,7 @@
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="file" >
-                <MenuItem Name="newDetailsMtn" Header="New Details" Click="newDetailsMBtn_Click"></MenuItem>
+                <MenuItem Name="newDetailsMtn" Header="New Details" Click="addressBtn_Click"></MenuItem>
                 <MenuItem Name="saveMonthlyReportMenuItem" Header="Save Monthly Report" Click="saveMonthlyReportMenuItem_Click"></MenuItem>
                 <MenuItem Name="closeMenuItem" Header="Exit" Click="closeMenuItem_Click"></MenuItem>
             </MenuItem>
@@ -20,6 +20,7 @@
                 <MenuItem Name="calMenuItem" Click="calMenuItem_Click" Header="Calender"></MenuItem>
                 <MenuItem Name="gridMenuItem" Click="gridMenuItem_Click" Header="Grid"></MenuItem>
                 <MenuItem Name="listMenuItem" Click="listMenuItem_Click" Header="List"></MenuItem>
+                <MenuItem Name="reportMenuItem" Click="reportMenuItem_Click" Header="Report"></MenuItem>
             </MenuItem>
             <MenuItem Header="Tools">
                 <MenuItem Name="webSyncMenuItem" Click="webSyncMenuItem_Click" Header="Sync to Web"></MenuItem>
@@ -39,6 +40,8 @@
             <Separator></Separator>
             <Button Click="calMenuItem_Click">Calender view</Button>
             <Separator></Separator>
+            <Button Name="addressBtn" Click="addressBtn_Click">Address Book</Button>
+            <Separator></Separator>
             <Button Click="gridMenuItem_Click">Grid View</Button>
             <Separator></Separator>
             <Button Click="listMenuItem_Click">List View</Button>
@@ -47,7 +50,7 @@
             <Separator></Separator>
             <Button>Web Sync</Button>
             <Separator></Separator>
-            <Button>Save Monthly Report</Button>
+            <Button>Save Report</Button>
         </ToolBar>
         <StatusBar DockPanel.Dock="Bottom">
             <Label>Not connected to Internet</Label>
@@ -67,8 +70,22 @@
             <Label></Label>
         </UniformGrid>
             <TabControl Name="viewTabControl" TabStripPlacement="Right" SelectedIndex="2">
-            <TabItem Header="Calender" Name="calenderTabItem">
-                <my:CalenderControl />
+            <TabItem Header="Calender" Name="calenderTabItem"  MouseRightButtonDown="click_MouseLeftButtonDown">
+                <DockPanel>
+                    <UniformGrid DockPanel.Dock="Left">
+                        <my:CalenderControl />
+                    </UniformGrid>
+                    <UniformGrid Rows="1" Columns="7" DockPanel.Dock="Top">
+                        <Label>Sunday</Label>
+                        <Label>Monday</Label>
+                        <Label>Tuesday</Label>
+                        <Label>Wednesday</Label>
+                        <Label>Thursday</Label>
+                        <Label>Friday</Label>
+                        <Label>Saturday</Label>
+                    </UniformGrid>
+                    <UniformGrid Name="showDetailsUG"  Columns="7"></UniformGrid>
+                </DockPanel>
             </TabItem>
             <TabItem Header="Grid" Name="gridTabitem">
                <my:GridControl />
@@ -87,6 +104,20 @@
                     </ListView.View>
                 </ListView>
                 <!--<my:ListControl />-->
+            </TabItem>
+            <TabItem Header="Report" Name="reportTabitem">
+                <DockPanel>
+                    <UniformGrid DockPanel.Dock="Left" Columns="1">
+                        <Button>Weekly</Button>
+                        <Button>Monthly</Button>
+                        <Button>Yeraly</Button>
+                    </UniformGrid>
+                    <UniformGrid DockPanel.Dock="Right">
+                        <Canvas>
+                            <Ellipse Canvas.Left="223" Canvas.Top="115" Height="224" Width="240" Stroke="Green" StrokeThickness="100"  />
+                        </Canvas>
+                    </UniformGrid>
+                </DockPanel>
             </TabItem>
         </TabControl>
 
