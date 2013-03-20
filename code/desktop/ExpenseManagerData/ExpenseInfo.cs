@@ -12,7 +12,10 @@ namespace ExpenseManagerData
         Fixed,
         Variable,
         OverDraft,
-        Adhoc
+        Adhoc,
+        Credit,
+        Expense
+
     }
 
     public enum EarningType
