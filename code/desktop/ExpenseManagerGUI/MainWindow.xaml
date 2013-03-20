@@ -46,7 +46,7 @@
             <Separator></Separator>
             <Button Click="listMenuItem_Click">List View</Button>
             <Separator></Separator>
-            <Button> Mobile Sync</Button>
+            <Button>Mobile Sync</Button>
             <Separator></Separator>
             <Button>Web Sync</Button>
             <Separator></Separator>
@@ -54,13 +54,13 @@
         </ToolBar>
         <StatusBar DockPanel.Dock="Bottom">
             <Label>Not connected to Internet</Label>
-            
+
             <Button Click="Button_Click">Close</Button>
         </StatusBar>
-        <UniformGrid DockPanel.Dock="Top" Rows="1">
+        <!--<UniformGrid DockPanel.Dock="Top" Rows="1">
             <Label></Label>
             <Label></Label>
-            
+
             <Button Name="viewBtn" Click="viewBtn_Click">View Details</Button>
             <Label></Label>
             <Button Name="editBtn">Edit Details</Button>
@@ -68,8 +68,8 @@
             <Button Name="deleteBTN">Delete Details</Button>
             <Label></Label>
             <Label></Label>
-        </UniformGrid>
-            <TabControl Name="viewTabControl" TabStripPlacement="Right" SelectedIndex="2">
+        </UniformGrid>-->
+        <TabControl Name="viewTabControl" TabStripPlacement="Right" SelectedIndex="2">
             <TabItem Header="Calender" Name="calenderTabItem"  MouseRightButtonDown="click_MouseLeftButtonDown">
                 <DockPanel>
                     <UniformGrid DockPanel.Dock="Left">
@@ -88,7 +88,7 @@
                 </DockPanel>
             </TabItem>
             <TabItem Header="Grid" Name="gridTabitem">
-               <my:GridControl />
+                <my:GridControl />
             </TabItem>
             <TabItem Header="List" Name="listTabItem">
 
@@ -107,10 +107,23 @@
             </TabItem>
             <TabItem Header="Report" Name="reportTabitem">
                 <DockPanel>
-                    <UniformGrid DockPanel.Dock="Left" Columns="1">
-                        <Button>Weekly</Button>
-                        <Button>Monthly</Button>
-                        <Button>Yeraly</Button>
+                    <UniformGrid DockPanel.Dock="Top">
+                        <Label>Start Date</Label>
+                        <Calendar Name="startReportCal"></Calendar>
+                        <Label>End Date</Label>
+                        <Calendar Name="endReportCal"></Calendar>
+                    </UniformGrid>
+                    <Button Name="saveReport" Width="200">Save Report</Button>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Chart" Name="ChartTabitem">
+                <DockPanel>
+                    <UniformGrid DockPanel.Dock="Top">
+                        
+                        <CalendarButton Name="startChartCal">Start Date</CalendarButton>
+                        <Label  Name="startChartLbl">13th January , 2013</Label>                        
+                        <CalendarButton Name="endChartCal">End Date</CalendarButton>
+                        <Label  Name="endChartLbl">25th February , 2013</Label>
                     </UniformGrid>
                     <UniformGrid DockPanel.Dock="Right">
                         <Canvas>
