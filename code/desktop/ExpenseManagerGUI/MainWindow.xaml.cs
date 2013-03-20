@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using ExpenseManagerData;
+using ExpenseManagerDb;
 using System.Collections.ObjectModel;
 using Microsoft.Research.DynamicDataDisplay;
 using Microsoft.Research.DynamicDataDisplay.DataSources;

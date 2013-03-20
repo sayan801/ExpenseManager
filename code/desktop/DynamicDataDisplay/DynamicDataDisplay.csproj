@@ -24,7 +24,8 @@
     </SccProvider>
     <SignAssembly>true</SignAssembly>
     <OutputPath>$(SolutionDir)$(Configuration)\bin\</OutputPath>
-    <AssemblyOriginatorKeyFile>DynamicDataDisplay.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
     <ApplicationIcon>
     </ApplicationIcon>
     <FileUpgradeFlags>
@@ -343,7 +344,6 @@
     <Compile Include="ViewportRestrictions\ProportionsRestriction.cs" />
     <Compile Include="ViewportRestrictions\RestrictionCollection.cs" />
     <Compile Include="ViewportRestrictions\ViewportRestrictionBase.cs" />
-    <None Include="DynamicDataDisplay.snk" />
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
