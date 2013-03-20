@@ -37,7 +37,7 @@ namespace ExpenseManagerDb
                 if (msqlConnection.State != System.Data.ConnectionState.Open)
                     msqlConnection.Open();
 
-                msqlCommand.CommandText = "INSERT INTO excredit(id,date,type,description,amount) "
+                msqlCommand.CommandText = "INSERT INTO exinfo(id,date,type,description,amount) "
                                                    + "VALUES(@id,@date,@type,@description,@amount)";
 
                 msqlCommand.Parameters.AddWithValue("@id", excreditDetails.id);
