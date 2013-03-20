@@ -138,6 +138,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DynamicDataDisplay\DynamicDataDisplay.csproj">
+      <Project>{ECD37682-DF7E-409F-912D-0965634556B5}</Project>
+      <Name>DynamicDataDisplay</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExpenseManagerData\ExpenseManagerData.csproj">
       <Project>{84F18DE0-BC8A-4447-A85A-E6431A33E231}</Project>
       <Name>ExpenseManagerData</Name>

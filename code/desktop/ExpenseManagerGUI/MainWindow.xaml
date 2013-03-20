@@ -2,7 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
+
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="Expense Manager" Height="600" Width="800" WindowState="Maximized">
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
@@ -118,18 +120,18 @@
             </TabItem>
             <TabItem Header="Chart" Name="ChartTabitem">
                 <DockPanel>
-                    <UniformGrid DockPanel.Dock="Top">
-                        
-                        <CalendarButton Name="startChartCal">Start Date</CalendarButton>
-                        <Label  Name="startChartLbl">13th January , 2013</Label>                        
-                        <CalendarButton Name="endChartCal">End Date</CalendarButton>
-                        <Label  Name="endChartLbl">25th February , 2013</Label>
+                    <UniformGrid DockPanel.Dock="Top" Rows="1">
+
+                        <Label Name="startChartLbl" >Start Date</Label>
+                        <Calendar  Name="startChartCal"></Calendar>
+                        <Label  Name="endChartLbl">End Date</Label>
+                        <Calendar Name="endChartCal"></Calendar>
+
                     </UniformGrid>
-                    <UniformGrid DockPanel.Dock="Right">
-                        <Canvas>
-                            <Ellipse Canvas.Left="223" Canvas.Top="115" Height="224" Width="240" Stroke="Green" StrokeThickness="100"  />
-                        </Canvas>
-                    </UniformGrid>
+                    <Button Name="plotDetails" Click="plotDetails_Click" DockPanel.Dock="Top" Width="300" Height="80">Plot Details</Button>
+                    <!--xmlns:graph="clr-namespace:DNBSoft.WPF.WPFGraph;assembly=WPFGraph"-->
+                    <!--<graph:WPFScatterGraph Name="graphGrid"/>-->
+                    <d3:ChartPlotter Name="plotter"/>
                 </DockPanel>
             </TabItem>
         </TabControl>

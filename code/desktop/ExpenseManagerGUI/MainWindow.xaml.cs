@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using System.Threading;
 using ExpenseManagerData;
 using System.Collections.ObjectModel;
+using Microsoft.Research.DynamicDataDisplay;
+using Microsoft.Research.DynamicDataDisplay.DataSources;
 
 namespace ExpenseManagerGUI
 {
@@ -60,13 +62,13 @@ namespace ExpenseManagerGUI
             ExpenseManagerGUI.NewDetailsWindow NewDetailsWindowObj = new ExpenseManagerGUI.NewDetailsWindow();
             NewDetailsWindowObj.Show();
         }
-        
+
 
         private void closeMenuItem_Click(object sender, RoutedEventArgs e)
         {
             //this.WindowState = System.Windows.WindowState.Maximized;
             //Thread.Sleep(10000);
-            this.Close();          
+            this.Close();
         }
 
         private void calMenuItem_Click(object sender, RoutedEventArgs e)
@@ -87,7 +89,7 @@ namespace ExpenseManagerGUI
         {
             viewTabControl.SelectedIndex = 3;
         }
-        
+
 
         private void abtMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -160,6 +162,72 @@ namespace ExpenseManagerGUI
                 showDetailsUG.Children.Add(new ShowDetails(i));
         }
 
-        
+        private void plotDetails_Click(object sender, RoutedEventArgs e)
+        {
+            ObservableDataSource<Point> source1 = null;
+
+            // Create first source
+            source1 = new ObservableDataSource<Point>();
+
+            List<Point> list1 = new List<Point>();
+
+            for (int i = 0; i < 30; i++)
+            {
+                Point p1 = new Point(i, 2 * i);
+                list1.Add(p1);
+            }
+            source1.AppendMany(list1);
+            // Set identity mapping of point in collection to point on plot
+            source1.SetXYMapping(p => p);
+
+            // Add all three graphs. Colors are not specified and chosen random
+            plotter.AddLineGraph(source1, Color.FromRgb(0, 255, 0), 2, "Data row 1");
+
+            // Create second source
+            ObservableDataSource<Point> source2 = null;
+            source2 = new ObservableDataSource<Point>();
+            List<Point> list2 = new List<Point>();
+            for (int j = 0; j < 30; j++)
+            {
+                Point p1 = new Point(j, 3 * j);
+                list2.Add(p1);
+            }
+            source2.AppendMany(list2);
+
+            // Set identity mapping of point in collection to point on plot
+            source2.SetXYMapping(p => p);
+
+            plotter.AddLineGraph(source2, Color.FromRgb(0, 0, 255), 2, "Data row 2");
+        }
+
+        //private void plotDetails_Click(object sender, RoutedEventArgs e)
+        //{
+        //    WPFGraphSeries series = new WPFGraphSeries();
+
+        //    for (int i = 0; i < 16; i++)
+        //    {
+        //        WPFGraphDataPoint f = new WPFGraphDataPoint();
+        //        f.X = i * 2;
+        //        f.Y = i;
+
+        //        series.Points.Add(f);
+        //    }
+
+        //    graphGrid.Series.Add(series);
+
+        //    WPFGraphSeries series1 = new WPFGraphSeries();
+
+        //    for (int i = 0; i < 16; i++)
+        //    {
+        //        WPFGraphDataPoint f = new WPFGraphDataPoint();
+        //        f.X = i * 3;
+        //        f.Y = i * 2;
+
+        //        series1.Points.Add(f);
+        //    }
+
+        //    graphGrid.Series.Add(series1);
+        //}
+
     }
 }
