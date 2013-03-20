@@ -25,16 +25,14 @@ namespace ExpenseManagerGUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<ExpenseInfo> _incomeExpenseCollection = new ObservableCollection<ExpenseInfo>();
 
 
-        ObservableCollection<ExpenseInfo> _excreditCollection = new ObservableCollection<ExpenseInfo>();
-
-
-        public ObservableCollection<ExpenseInfo> excreditCollection
+        public ObservableCollection<ExpenseInfo> incomeExpenseCollection
         {
             get
             {
-                return _excreditCollection;
+                return _incomeExpenseCollection;
             }
         }
 
@@ -146,13 +144,18 @@ namespace ExpenseManagerGUI
 
         private void viewBtn_Click(object sender, RoutedEventArgs e)
         {
+            showIncomeExpenseDetails();
+        }
+
+        private void showIncomeExpenseDetails()
+        {
             List<ExpenseInfo> excredits = ExpenseManagerDb.DbInteraction.GetAllExcreditList();
 
-            _excreditCollection.Clear();
+            incomeExpenseCollection.Clear();
 
             foreach (ExpenseInfo excredit in excredits)
             {
-                _excreditCollection.Add(excredit);
+                incomeExpenseCollection.Add(excredit);
             }
         }
 
@@ -199,6 +202,11 @@ namespace ExpenseManagerGUI
             source2.SetXYMapping(p => p);
 
             plotter.AddLineGraph(source2, Color.FromRgb(0, 0, 255), 2, "Data row 2");
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            showIncomeExpenseDetails();
         }
 
         //private void plotDetails_Click(object sender, RoutedEventArgs e)

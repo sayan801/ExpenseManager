@@ -5,7 +5,7 @@
         xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
 
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="Expense Manager" Height="600" Width="800" WindowState="Maximized">
+        Title="Expense Manager" Height="600" Width="800" WindowState="Maximized" Loaded="Window_Loaded">
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="file" >
@@ -94,7 +94,7 @@
             </TabItem>
             <TabItem Header="List" Name="listTabItem">
 
-                <ListView Background="DarkOliveGreen" Name="listDataLV" Foreground="White" ItemsSource="{Binding excreditCollection}">
+                <ListView Background="DarkOliveGreen" Name="listDataLV" Foreground="White" ItemsSource="{Binding incomeExpenseCollection}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="120" Header="ID"  DisplayMemberBinding="{Binding id}"  />
