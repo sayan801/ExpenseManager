@@ -58,6 +58,7 @@
             <Label>Not connected to Internet</Label>
 
             <Button Click="Button_Click">Close</Button>
+            <Button Click="Button_Click_1" >Refresh</Button>
         </StatusBar>
         <!--<UniformGrid DockPanel.Dock="Top" Rows="1">
             <Label></Label>

@@ -209,6 +209,11 @@ namespace ExpenseManagerGUI
             showIncomeExpenseDetails();
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            showIncomeExpenseDetails();
+        }
+
         //private void plotDetails_Click(object sender, RoutedEventArgs e)
         //{
         //    WPFGraphSeries series = new WPFGraphSeries();

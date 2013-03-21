@@ -43,6 +43,7 @@ namespace ExpenseManagerGUI
             ExpenseManagerDb.DbInteraction.DoRegisterNewExcredit(newExcredit);
 
             this.Close();
+            
 
         }
 
