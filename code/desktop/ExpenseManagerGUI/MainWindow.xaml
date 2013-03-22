@@ -124,9 +124,11 @@
                     <UniformGrid DockPanel.Dock="Top" Rows="1">
 
                         <Label Name="startChartLbl" >Start Date</Label>
-                        <Calendar  Name="startChartCal"></Calendar>
+                        <DatePicker Name="startingdateDP"></DatePicker>
+                        <!--<Calendar  Name="startChartCal"></Calendar>-->
                         <Label  Name="endChartLbl">End Date</Label>
-                        <Calendar Name="endChartCal"></Calendar>
+                        <DatePicker Name="enddatepickerDP"></DatePicker>
+                        <!--<Calendar Name="endChartCal"></Calendar>-->
 
                     </UniformGrid>
                     <Button Name="plotDetails" Click="plotDetails_Click" DockPanel.Dock="Top" Width="300" Height="80">Plot Details</Button>

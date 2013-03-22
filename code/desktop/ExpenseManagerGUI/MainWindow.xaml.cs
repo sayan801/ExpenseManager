@@ -202,12 +202,46 @@ namespace ExpenseManagerGUI
             source2.SetXYMapping(p => p);
 
             plotter.AddLineGraph(source2, Color.FromRgb(0, 0, 255), 2, "Data row 2");
+
+            getDatewiseReport();
+        }
+
+        private void getDatewiseReport()
+        {
+            ExpenseInfo expenseInfoObj = new ExpenseInfo();
+            expenseInfoObj.date = startingdateDP.SelectedDate.Value;
+            expenseInfoObj.endDate = enddatepickerDP.SelectedDate.Value;
+
+            List<ExpenseInfo> excredits = ExpenseManagerDb.DbInteraction.GetDatewiseAllExcreditList(expenseInfoObj);
+
+            incomeExpenseCollection.Clear();
+
+            foreach (ExpenseInfo excredit in excredits)
+            {
+                incomeExpenseCollection.Add(excredit);
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             showIncomeExpenseDetails();
+            //showEachDayDetails();
         }
+
+        //private void showEachDayDetails()
+        //{
+
+        //    ExpenseInfo expenseInfoObj = new ExpenseInfo();
+        //   // expenseInfoObj.date = CalenderControl.
+        //    List<ExpenseInfo> excredits = ExpenseManagerDb.DbInteraction.GetEachDayExcreditList(expenseInfoObj);
+
+        //    incomeExpenseCollection.Clear();
+
+        //    foreach (ExpenseInfo excredit in excredits)
+        //    {
+        //        incomeExpenseCollection.Add(excredit);
+        //    }
+        //}
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -242,6 +276,9 @@ namespace ExpenseManagerGUI
 
         //    graphGrid.Series.Add(series1);
         //}
+
+        
+
 
     }
 }

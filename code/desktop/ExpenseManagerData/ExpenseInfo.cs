@@ -63,6 +63,7 @@ namespace ExpenseManagerData
         public string description { get; set; }
         public double amount { get; set; }
         public bool IsWithInLimit;
+        public DateTime endDate { get; set; }
     }
 
     public class EarningInfo
