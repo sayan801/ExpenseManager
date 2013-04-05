@@ -5,7 +5,7 @@
         xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
 
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="Expense Manager" Height="600" Width="800" WindowState="Maximized" Loaded="Window_Loaded">
+        Title="Expense Manager" Height="600" Width="800" WindowState="Maximized" Loaded="Window_Loaded" Background="#FFADA4A4">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -42,7 +42,7 @@
             </MenuItem>
 
         </Menu>
-        <ToolBar Height="40" DockPanel.Dock="Top">
+        <ToolBar Height="40" DockPanel.Dock="Top" Background="Transparent">
             <Button Name="newDetailsBtn" Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" Click="newDetailsBtn_Click" >New Details</Button>
             <Separator></Separator>
             <Button Name="calculatorBtn" Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" Click="calculatorBtn_Click">Calculator</Button>
@@ -64,8 +64,8 @@
         <StatusBar DockPanel.Dock="Bottom">
             <Label>Not connected to Internet</Label>
 
-            <Button Click="Button_Click">Close</Button>
-            <Button Click="Button_Click_1" >Refresh</Button>
+            <Button  Style="{StaticResource MainBtnStyle}"  Click="Button_Click">Close</Button>
+            <Button  Style="{StaticResource MainBtnStyle}"  Click="Button_Click_1" >Refresh</Button>
         </StatusBar>
         <!--<UniformGrid DockPanel.Dock="Top" Rows="1">
             <Label></Label>
@@ -103,8 +103,8 @@
             <TabItem Header="List" Name="listTabItem">
                 <DockPanel LastChildFill="True">
                     <UniformGrid DockPanel.Dock="Bottom" Rows="1">
-                        <Button>Delete</Button>
-                        <Button>Edit</Button>
+                        <Button  Style="{StaticResource MainBtnStyle}" >Delete</Button>
+                        <Button  Style="{StaticResource MainBtnStyle}" >Edit</Button>
                     </UniformGrid>
                 <UniformGrid DockPanel.Dock="Top">
                     <ListView Background="DarkOliveGreen" Name="listDataLV" Foreground="White" ItemsSource="{Binding incomeExpenseCollection}">

@@ -22,5 +22,30 @@ namespace ExpenseManagerGUI
         {
             InitializeComponent();
         }
+
+        private void submitAddressBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ExpenseManagerData.AddressInfo newAddress = new ExpenseManagerData.AddressInfo();
+
+            newAddress.id = GenerateId();
+
+            newAddress.name = nameBtn.Text;
+            newAddress.mobile = mobBtn.Text;
+            newAddress.home = homeBtn.Text;
+            newAddress.office = ofcBtn.Text;
+            newAddress.address = addressBtn.Text;
+            newAddress.email = emailBtn.Text;
+            newAddress.note = noteBtn.Text;
+
+
+            ExpenseManagerDb.DbInteraction.DoEnterAddress(newAddress);
+
+            addressTC.SelectedIndex = 0;
+            
+        }
+        private string GenerateId()
+        {
+            return DateTime.Now.ToOADate().ToString();
+        }
     }
 }

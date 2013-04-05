@@ -24,6 +24,36 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `ems` /*!40100 DEFAULT CHARACTER SET la
 USE `ems`;
 
 --
+-- Table structure for table `address`
+--
+
+DROP TABLE IF EXISTS `address`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `address` (
+  `id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `mobile` varchar(100) DEFAULT 'N/A',
+  `home` varchar(100) DEFAULT 'N/A',
+  `office` varchar(100) DEFAULT 'N/A',
+  `address` varchar(100) DEFAULT 'N/A',
+  `email` varchar(100) DEFAULT 'N/A',
+  `note` varchar(100) DEFAULT 'N/A',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `address`
+--
+
+LOCK TABLES `address` WRITE;
+/*!40000 ALTER TABLE `address` DISABLE KEYS */;
+INSERT INTO `address` VALUES ('41369.8209969676','c v','cvb','b ','vb ','vcc','bc','bcb');
+/*!40000 ALTER TABLE `address` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `excredit`
 --
 
@@ -46,6 +76,7 @@ CREATE TABLE `excredit` (
 
 LOCK TABLES `excredit` WRITE;
 /*!40000 ALTER TABLE `excredit` DISABLE KEYS */;
+INSERT INTO `excredit` VALUES ('41369.7388126389','2013-04-11 00:00:00','5','sd',242),('41369.819201713','2013-04-05 00:00:00','5','vcb vc',422);
 /*!40000 ALTER TABLE `excredit` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +89,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-05-18 15:42:24
+-- Dump completed on 2013-04-05 19:43:58

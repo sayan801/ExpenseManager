@@ -12,6 +12,19 @@ namespace ExpenseManagerDb
         static string dbmsCurrent = "ems";
         // donor, patient, member, todo, wellwisher, event, fund, expense (insert & display), hdbb only display...
 
+        private static MySql.Data.MySqlClient.MySqlConnection OpenDbConnection()
+        {
+            MySql.Data.MySqlClient.MySqlConnection msqlConnection = null;
+
+            msqlConnection = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;user id=root;Password=" + passwordCurrent + ";database=" + dbmsCurrent + ";persist security info=False");
+
+            //open the connection
+            if (msqlConnection.State != System.Data.ConnectionState.Open)
+                msqlConnection.Open();
+
+            return msqlConnection;
+        }
+
         #region Excredit
 
         public static int DoRegisterNewExcredit(ExpenseInfo excreditDetails)
@@ -22,9 +35,8 @@ namespace ExpenseManagerDb
         private static int DoRegisterNewExcreditInDb(ExpenseInfo excreditDetails)
         {
             int returnVal = 0;
-            MySql.Data.MySqlClient.MySqlConnection msqlConnection = null;
+            MySql.Data.MySqlClient.MySqlConnection msqlConnection = OpenDbConnection();
 
-            msqlConnection = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;user id=root;Password=" + passwordCurrent + ";database=" + dbmsCurrent + ";persist security info=False");
             try
             {
                 //define the command reference
@@ -33,9 +45,7 @@ namespace ExpenseManagerDb
                 //define the connection used by the command object
                 msqlCommand.Connection = msqlConnection;
 
-                //open the connection
-                if (msqlConnection.State != System.Data.ConnectionState.Open)
-                    msqlConnection.Open();
+               
 
                 msqlCommand.CommandText = "INSERT INTO excredit(id,date,type,description,amount) "
                                                    + "VALUES(@id,@date,@type,@description,@amount)";
@@ -70,17 +80,15 @@ namespace ExpenseManagerDb
         private static List<ExpenseInfo> QueryAllExcreditList()
         {
             List<ExpenseInfo> ExcreditList = new List<ExpenseInfo>();
-            MySql.Data.MySqlClient.MySqlConnection msqlConnection = null;
+            MySql.Data.MySqlClient.MySqlConnection msqlConnection = OpenDbConnection();
 
-            msqlConnection = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;user id=root;Password=" + passwordCurrent + ";database=" + dbmsCurrent + ";persist security info=False");
 
             try
             {   //define the command reference
                 MySql.Data.MySqlClient.MySqlCommand msqlCommand = new MySql.Data.MySqlClient.MySqlCommand();
                 msqlCommand.Connection = msqlConnection;
 
-                msqlConnection.Open();
-
+                
                 msqlCommand.CommandText = "Select * From excredit;";
                 MySql.Data.MySqlClient.MySqlDataReader msqlReader = msqlCommand.ExecuteReader();
 
@@ -112,22 +120,20 @@ namespace ExpenseManagerDb
 
         }
 
-        #endregion 
+        
 
     
         public static List<ExpenseInfo> GetDatewiseAllExcreditList(ExpenseInfo expenseInfoObj)
         {
             List<ExpenseInfo> ExcreditList = new List<ExpenseInfo>();
-            MySql.Data.MySqlClient.MySqlConnection msqlConnection = null;
-
-            msqlConnection = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;user id=root;Password=" + passwordCurrent + ";database=" + dbmsCurrent + ";persist security info=False");
+            MySql.Data.MySqlClient.MySqlConnection msqlConnection = OpenDbConnection();
 
             try
             {   //define the command reference
                 MySql.Data.MySqlClient.MySqlCommand msqlCommand = new MySql.Data.MySqlClient.MySqlCommand();
                 msqlCommand.Connection = msqlConnection;
 
-                msqlConnection.Open();
+                
                 DateTime endDatePicker = expenseInfoObj.endDate;
                 DateTime startDatePicker = expenseInfoObj.date;
                 TimeSpan diff = (TimeSpan)(endDatePicker - startDatePicker);
@@ -168,9 +174,7 @@ namespace ExpenseManagerDb
         public static List<ExpenseInfo> GetEachDayExcreditList(ExpenseInfo expenseInfoObj)
         {
             List<ExpenseInfo> ExcreditList = new List<ExpenseInfo>();
-            MySql.Data.MySqlClient.MySqlConnection msqlConnection = null;
-
-            msqlConnection = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;user id=root;Password=" + passwordCurrent + ";database=" + dbmsCurrent + ";persist security info=False");
+            MySql.Data.MySqlClient.MySqlConnection msqlConnection = OpenDbConnection();
 
             try
             {   //define the command reference
@@ -212,5 +216,60 @@ namespace ExpenseManagerDb
 
             return ExcreditList;
         }
+
+         
+
+        #endregion
+
+        #region Address Book
+
+        public static int DoEnterAddress(AddressInfo NewAddress)
+        {
+            return DoRegisterNewAddressindb(NewAddress);
+        }
+
+        private static int DoRegisterNewAddressindb(AddressInfo NewAddress)
+        {
+            int returnVal = 0;
+            MySql.Data.MySqlClient.MySqlConnection msqlConnection = OpenDbConnection();
+
+            try
+            {
+                //define the command reference
+                MySql.Data.MySqlClient.MySqlCommand msqlCommand = new MySql.Data.MySqlClient.MySqlCommand();
+
+                //define the connection used by the command object
+                msqlCommand.Connection = msqlConnection;
+
+                msqlCommand.CommandText = "INSERT INTO address(id,name,mobile,home,office,address,email,note) "
+                                    + "VALUES(@id,@name,@mobile,@home,@office,@address,@email,@note)";
+
+                msqlCommand.Parameters.AddWithValue("@id", NewAddress.id);
+                msqlCommand.Parameters.AddWithValue("@name", NewAddress.name);
+                msqlCommand.Parameters.AddWithValue("@mobile", NewAddress.mobile);
+                msqlCommand.Parameters.AddWithValue("@home", NewAddress.home);
+                msqlCommand.Parameters.AddWithValue("@office", NewAddress.office);
+                msqlCommand.Parameters.AddWithValue("@address", NewAddress.address);
+                msqlCommand.Parameters.AddWithValue("@email", NewAddress.email);
+                msqlCommand.Parameters.AddWithValue("@note", NewAddress.note);
+
+                msqlCommand.ExecuteNonQuery();
+
+                returnVal = 1;
+            }
+            catch (Exception er)
+            {
+                returnVal = 0;
+            }
+            finally
+            {
+                //always close the connection
+                msqlConnection.Close();
+            }
+            return returnVal;
+        }
+
+
+        #endregion
     }
 }

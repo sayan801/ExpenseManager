@@ -1,27 +1,35 @@
 ﻿<Window x:Class="ExpenseManagerGUI.NewDetailsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="New Details" Height="300" Width="600">
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="New Details" Height="442" Width="828" Background="#FFADA4A4" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ExpenseManagerStyle;component/ControlStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <DockPanel>
         <UniformGrid DockPanel.Dock="Top">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Enter Informations</Label>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource labelStyle}">Enter Informations</Label>
         </UniformGrid>
         <UniformGrid DockPanel.Dock="Bottom" Columns="2">
-            <Button Name="cancleBtn" Margin="5" Click="cancleBtn_Click">Cancel</Button>
-            <Button Name="submitBtn" Margin="5" Click="submitBtn_Click">Submit</Button>
+            <Button Name="cancleBtn" Margin="5"  Style="{StaticResource MainBtnStyle}" Click="cancleBtn_Click">Cancel</Button>
+            <Button Name="submitBtn" Margin="5"  Style="{StaticResource MainBtnStyle}" Click="submitBtn_Click">Submit</Button>
         </UniformGrid>
         <UniformGrid DockPanel.Dock="Top" Columns="2" Margin="20">
-            <Label Content="Type :" Name="typeLabel" VerticalAlignment="Center"/>
-            <ComboBox Name="typeCB" SelectedIndex="1" VerticalAlignment="Center">
+            <Label Content="Type :" Name="typeLabel" VerticalAlignment="Center"  Style="{StaticResource labelStyle}"/>
+            <ComboBox Name="typeCB" SelectedIndex="1" VerticalAlignment="Center"  Style="{StaticResource comboboxStyle}">
                 <ComboBoxItem>Credit</ComboBoxItem>
                 <ComboBoxItem>Expense</ComboBoxItem>
             </ComboBox>
-            <Label Content="Date :" Name="dateLabel" VerticalAlignment="Center"/>
-            <DatePicker VerticalAlignment="Center" Name="dateDP"></DatePicker>
-            <Label Content="Descritption :" Name="descritptionLabel" VerticalAlignment="Center"/>
-            <TextBox VerticalAlignment="Center" Name="descritptionTB"></TextBox>
-            <Label Content="Amount :" Name="amountLabel"  VerticalAlignment="Center"/>
-            <TextBox VerticalAlignment="Center" Name="amountTB"></TextBox>
+            <Label Content="Date :" Name="dateLabel" VerticalAlignment="Center" Style="{StaticResource labelStyle}"/>
+            <DatePicker VerticalAlignment="Center" Name="dateDP" Style="{StaticResource datePickerStyle}" SelectedDate="{x:Static sys:DateTime.Now}"></DatePicker>
+            <Label Content="Descritption :" Name="descritptionLabel" VerticalAlignment="Center"  Style="{StaticResource labelStyle}"/>
+            <TextBox VerticalAlignment="Center" Name="descritptionTB"  Style="{StaticResource textboxStyle}"></TextBox>
+            <Label Content="Amount :" Name="amountLabel"  VerticalAlignment="Center" Style="{StaticResource labelStyle}"/>
+            <TextBox VerticalAlignment="Center" Name="amountTB"  Style="{StaticResource textboxStyle}"></TextBox>
         </UniformGrid>
 
     </DockPanel>
