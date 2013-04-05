@@ -1,6 +1,7 @@
 ﻿<Window x:Class="ExpenseManagerGUI.AddressBook"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="AddressBook" Height="509" Width="862" Background="#FFADA4A4">
     <Window.Resources>
         <ResourceDictionary>
@@ -22,17 +23,17 @@
                     </UniformGrid>
                     
                     <UniformGrid DockPanel.Dock="Top">
-                        <ListView Name="contactView" HorizontalAlignment="Stretch">
+                        <ListView Name="contactView" HorizontalAlignment="Stretch" Style="{StaticResource ListViewStyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding addressCollection}" Loaded="Window_Loaded">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Width="180" Header="Name" />
-                                    <GridViewColumn Width="150" Header="Mobile"  />
-                                    <GridViewColumn Width="150" Header="Home"   />
-                                    <GridViewColumn Width="150" Header="Office"   />
-                                    <GridViewColumn Width="300" Header="Address"   />
-                                    <GridViewColumn Width="130" Header="EMail"   />
+                                    <GridViewColumn Width="180" Header="Name" DisplayMemberBinding="{Binding name}" />
+                                    <GridViewColumn Width="150" Header="Mobile" DisplayMemberBinding="{Binding mobile}"  />
+                                    <GridViewColumn Width="150" Header="Home"  DisplayMemberBinding="{Binding home}"  />
+                                    <GridViewColumn Width="150" Header="Office"  DisplayMemberBinding="{Binding office}"  />
+                                    <GridViewColumn Width="300" Header="Address" DisplayMemberBinding="{Binding address}"  />
+                                    <GridViewColumn Width="130" Header="EMail" DisplayMemberBinding="{Binding email}"  />
 
-                                    <GridViewColumn Width="100" Header="Notes"   />
+                                    <GridViewColumn Width="100" Header="Notes" DisplayMemberBinding="{Binding note}"  />
                                 </GridView>
                             </ListView.View>
                         </ListView>

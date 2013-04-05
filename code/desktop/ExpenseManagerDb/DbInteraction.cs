@@ -269,7 +269,56 @@ namespace ExpenseManagerDb
             return returnVal;
         }
 
+        public static List<AddressInfo> GetAllAddressList()
+        {
+            return QueryAllAddressList();
+        }
 
+        private static List<AddressInfo> QueryAllAddressList()
+        {
+            List<AddressInfo> AllAddressList = new List<AddressInfo>();
+            MySql.Data.MySqlClient.MySqlConnection msqlConnection = OpenDbConnection();
+
+            try
+            {   //define the command reference
+                MySql.Data.MySqlClient.MySqlCommand msqlCommand = new MySql.Data.MySqlClient.MySqlCommand();
+                msqlCommand.Connection = msqlConnection;
+
+
+
+                msqlCommand.CommandText = "Select * From address;";
+                MySql.Data.MySqlClient.MySqlDataReader msqlReader = msqlCommand.ExecuteReader();
+
+                while (msqlReader.Read())
+                {
+                    AddressInfo Address = new AddressInfo();
+
+                    
+                    Address.name = msqlReader.GetString("name");
+                    Address.mobile = msqlReader.GetString("mobile");
+                    Address.home = msqlReader.GetString("home");
+                    Address.office = msqlReader.GetString("office");
+                    Address.address = msqlReader.GetString("address");
+                    Address.email = msqlReader.GetString("email");
+                    Address.note = msqlReader.GetString("note");
+                    
+
+                    AllAddressList.Add(Address);
+                }
+            }
+
+            catch (Exception er)
+            {
+            }
+            finally
+            {
+                //always close the connection
+                msqlConnection.Close();
+            }
+
+            return AllAddressList;
+
+        }
         #endregion
     }
 }

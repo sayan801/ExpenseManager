@@ -10,6 +10,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ExpenseManagerData;
+using ExpenseManagerDb;
+using System.Collections.ObjectModel;
 
 namespace ExpenseManagerGUI
 {
@@ -46,6 +49,35 @@ namespace ExpenseManagerGUI
         private string GenerateId()
         {
             return DateTime.Now.ToOADate().ToString();
+        }
+
+
+
+        ObservableCollection<AddressInfo> _addressCollection = new ObservableCollection<AddressInfo>();
+
+
+        public ObservableCollection<AddressInfo> addressCollection
+        {
+            get
+            {
+                return _addressCollection;
+            }
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            fetchAddressData();
+        }
+
+        private void fetchAddressData()
+        {
+            List<AddressInfo> addresses = ExpenseManagerDb.DbInteraction.GetAllAddressList();
+
+            _addressCollection.Clear();
+
+            foreach (AddressInfo address in addresses)
+            {
+                _addressCollection.Add(address);
+            }
         }
     }
 }
