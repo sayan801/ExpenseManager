@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagerGUI", "ExpenseManagerGUI\ExpenseManagerGUI.csproj", "{C847EE92-2511-465D-B0FF-84B4D1144208}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagerDb", "ExpenseManagerDb\ExpenseManagerDb.csproj", "{1E51A587-AE50-43A5-A674-D02DA3E49FC0}"
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagerData", "ExpenseManagerData\ExpenseManagerData.csproj", "{84F18DE0-BC8A-4447-A85A-E6431A33E231}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ExpenseManagerInstaller", "ExpenseManagerInstaller\ExpenseManagerInstaller.vdproj", "{A464EF6A-9B29-4356-B393-57C31A048D04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagerStyle", "ExpenseManagerStyle\ExpenseManagerStyle.csproj", "{C51CEAE6-FB23-4796-97D1-E01181B314F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,16 @@ Global
 		{A464EF6A-9B29-4356-B393-57C31A048D04}.Release|Any CPU.ActiveCfg = Release
 		{A464EF6A-9B29-4356-B393-57C31A048D04}.Release|Mixed Platforms.ActiveCfg = Release
 		{A464EF6A-9B29-4356-B393-57C31A048D04}.Release|x86.ActiveCfg = Release
+		{C51CEAE6-FB23-4796-97D1-E01181B314F6}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C51CEAE6-FB23-4796-97D1-E01181B314F6}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{C51CEAE6-FB23-4796-97D1-E01181B314F6}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{C51CEAE6-FB23-4796-97D1-E01181B314F6}.Debug|x86.ActiveCfg = Debug|x86
+		{C51CEAE6-FB23-4796-97D1-E01181B314F6}.Debug|x86.Build.0 = Debug|x86
+		{C51CEAE6-FB23-4796-97D1-E01181B314F6}.Release|Any CPU.ActiveCfg = Release|x86
+		{C51CEAE6-FB23-4796-97D1-E01181B314F6}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{C51CEAE6-FB23-4796-97D1-E01181B314F6}.Release|Mixed Platforms.Build.0 = Release|x86
+		{C51CEAE6-FB23-4796-97D1-E01181B314F6}.Release|x86.ActiveCfg = Release|x86
+		{C51CEAE6-FB23-4796-97D1-E01181B314F6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

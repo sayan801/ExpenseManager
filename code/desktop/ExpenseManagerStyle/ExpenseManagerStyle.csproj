@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C847EE92-2511-465D-B0FF-84B4D1144208}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{C51CEAE6-FB23-4796-97D1-E01181B314F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExpenseManagerGUI</RootNamespace>
-    <AssemblyName>ExpenseManagerGUI</AssemblyName>
+    <RootNamespace>ExpenseManagerStyle</RootNamespace>
+    <AssemblyName>ExpenseManagerStyle</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -35,11 +35,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,67 +54,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="AddressBook.xaml.cs">
-      <DependentUpon>AddressBook.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ShowDetails.xaml.cs">
-      <DependentUpon>ShowDetails.xaml</DependentUpon>
-    </Compile>
-    <Page Include="AddressBook.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CalenderControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GridControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ListControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CalenderControl.xaml.cs">
-      <DependentUpon>CalenderControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EMSController.cs" />
-    <Compile Include="GridControl.xaml.cs">
-      <DependentUpon>GridControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ListControl.xaml.cs">
-      <DependentUpon>ListControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="NewDetailsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ShowDetails.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="NewDetailsWindow.xaml.cs">
-      <DependentUpon>NewDetailsWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -138,25 +78,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DynamicDataDisplay\DynamicDataDisplay.csproj">
-      <Project>{ECD37682-DF7E-409F-912D-0965634556B5}</Project>
-      <Name>DynamicDataDisplay</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExpenseManagerData\ExpenseManagerData.csproj">
-      <Project>{84F18DE0-BC8A-4447-A85A-E6431A33E231}</Project>
-      <Name>ExpenseManagerData</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExpenseManagerDb\ExpenseManagerDb.csproj">
-      <Project>{1E51A587-AE50-43A5-A674-D02DA3E49FC0}</Project>
-      <Name>ExpenseManagerDb</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExpenseManagerStyle\ExpenseManagerStyle.csproj">
-      <Project>{C51CEAE6-FB23-4796-97D1-E01181B314F6}</Project>
-      <Name>ExpenseManagerStyle</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <Page Include="ControlStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

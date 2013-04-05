@@ -6,9 +6,16 @@
 
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="Expense Manager" Height="600" Width="800" WindowState="Maximized" Loaded="Window_Loaded">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ExpenseManagerStyle;component/ControlStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="file" >
+            <MenuItem Header="File" >
                 <MenuItem Name="newDetailsMtn" Header="New Details" Click="addressBtn_Click"></MenuItem>
                 <MenuItem Name="saveMonthlyReportMenuItem" Header="Save Monthly Report" Click="saveMonthlyReportMenuItem_Click"></MenuItem>
                 <MenuItem Name="closeMenuItem" Header="Exit" Click="closeMenuItem_Click"></MenuItem>
@@ -36,23 +43,23 @@
 
         </Menu>
         <ToolBar Height="40" DockPanel.Dock="Top">
-            <Button Name="newDetailsBtn" Click="newDetailsBtn_Click">New Details</Button>
+            <Button Name="newDetailsBtn" Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" Click="newDetailsBtn_Click" >New Details</Button>
             <Separator></Separator>
-            <Button Name="calculatorBtn" Click="calculatorBtn_Click">Calculator</Button>
+            <Button Name="calculatorBtn" Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" Click="calculatorBtn_Click">Calculator</Button>
             <Separator></Separator>
-            <Button Click="calMenuItem_Click">Calender view</Button>
+            <Button Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" Click="calMenuItem_Click">Calender view</Button>
             <Separator></Separator>
-            <Button Name="addressBtn" Click="addressBtn_Click">Address Book</Button>
+            <Button Name="addressBtn" Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" Click="addressBtn_Click">Address Book</Button>
             <Separator></Separator>
-            <Button Click="gridMenuItem_Click">Grid View</Button>
+            <Button Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" Click="gridMenuItem_Click">Grid View</Button>
             <Separator></Separator>
-            <Button Click="listMenuItem_Click">List View</Button>
+            <Button Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" Click="listMenuItem_Click">List View</Button>
             <Separator></Separator>
-            <Button>Mobile Sync</Button>
+            <Button Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}">Mobile Sync</Button>
             <Separator></Separator>
-            <Button>Web Sync</Button>
+            <Button Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}">Web Sync</Button>
             <Separator></Separator>
-            <Button>Save Report</Button>
+            <Button Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}">Save Report</Button>
         </ToolBar>
         <StatusBar DockPanel.Dock="Bottom">
             <Label>Not connected to Internet</Label>
@@ -94,19 +101,26 @@
                 <my:GridControl />
             </TabItem>
             <TabItem Header="List" Name="listTabItem">
-
-                <ListView Background="DarkOliveGreen" Name="listDataLV" Foreground="White" ItemsSource="{Binding incomeExpenseCollection}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Width="120" Header="ID"  DisplayMemberBinding="{Binding id}"  />
-                            <GridViewColumn Width="100" Header="Date"  DisplayMemberBinding="{Binding date}"  />
-                            <GridViewColumn Width="120" Header="Type"  DisplayMemberBinding="{Binding type}"  />
-                            <GridViewColumn Width="250" Header="Description"  DisplayMemberBinding="{Binding description}"  />
-                            <GridViewColumn Width="100" Header="Amount"  DisplayMemberBinding="{Binding amount}"  />
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-                <!--<my:ListControl />-->
+                <DockPanel LastChildFill="True">
+                    <UniformGrid DockPanel.Dock="Bottom" Rows="1">
+                        <Button>Delete</Button>
+                        <Button>Edit</Button>
+                    </UniformGrid>
+                <UniformGrid DockPanel.Dock="Top">
+                    <ListView Background="DarkOliveGreen" Name="listDataLV" Foreground="White" ItemsSource="{Binding incomeExpenseCollection}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="120" Header="ID"  DisplayMemberBinding="{Binding id}"  />
+                                <GridViewColumn Width="100" Header="Date"  DisplayMemberBinding="{Binding date}"  />
+                                <GridViewColumn Width="120" Header="Type"  DisplayMemberBinding="{Binding type}"  />
+                                <GridViewColumn Width="250" Header="Description"  DisplayMemberBinding="{Binding description}"  />
+                                <GridViewColumn Width="100" Header="Amount"  DisplayMemberBinding="{Binding amount}"  />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </UniformGrid>
+                </DockPanel>
+                
             </TabItem>
             <TabItem Header="Report" Name="reportTabitem">
                 <DockPanel>
