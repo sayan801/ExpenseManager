@@ -40,6 +40,9 @@ namespace ExpenseManagerGUI
         public MainWindow()
         {
             InitializeComponent();
+            showDetailsUG.Children.Clear();
+            for (int i = 1; i <= 30; i++)
+                showDetailsUG.Children.Add(new ShowDetails(i));
         }
 
 
@@ -159,12 +162,12 @@ namespace ExpenseManagerGUI
             }
         }
 
-        private void click_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            showDetailsUG.Children.Clear();
-            for (int i = 1; i <= 30; i++)
-                showDetailsUG.Children.Add(new ShowDetails(i));
-        }
+        //private void click_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    showDetailsUG.Children.Clear();
+        //    for (int i = 1; i <= 30; i++)
+        //        showDetailsUG.Children.Add(new ShowDetails(i));
+        //}
 
         private void plotDetails_Click(object sender, RoutedEventArgs e)
         {
@@ -246,6 +249,40 @@ namespace ExpenseManagerGUI
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             showIncomeExpenseDetails();
+        }
+
+        private void refreshDetailsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            showIncomeExpenseDetails();
+        }
+
+        private ExpenseInfo GetSelectedExpenseItem()
+        {
+
+            ExpenseInfo expenseToDelete = null;
+
+            if (listDataLV.SelectedIndex == -1)
+                MessageBox.Show("Please Select an Item");
+            else
+            {
+                ExpenseInfo i = (ExpenseInfo)listDataLV.SelectedItem;
+
+                //addressToDelete = _addressCollection.Where(item => item.id.Equals(i.id)).First();
+                expenseToDelete = _incomeExpenseCollection.Where(item => item.id.Equals(i.id)).First();
+            }
+
+            return expenseToDelete;
+        }
+        private void deleteExpnseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ExpenseInfo expenseToDelete = GetSelectedExpenseItem();
+            if (expenseToDelete != null)
+            {
+                _incomeExpenseCollection.Remove(expenseToDelete);
+                ExpenseManagerDb.DbInteraction.DeleteExpense(expenseToDelete.id);
+                showIncomeExpenseDetails();
+
+            }
         }
 
         //private void plotDetails_Click(object sender, RoutedEventArgs e)

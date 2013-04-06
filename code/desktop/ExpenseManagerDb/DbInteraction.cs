@@ -217,7 +217,34 @@ namespace ExpenseManagerDb
             return ExcreditList;
         }
 
-         
+        #region Delete Expense
+
+        public static void DeleteExpense(string expenseToDelete)
+        {
+            MySql.Data.MySqlClient.MySqlConnection msqlConnection = OpenDbConnection();
+
+            try
+            {   //define the command reference
+                MySql.Data.MySqlClient.MySqlCommand msqlCommand = new MySql.Data.MySqlClient.MySqlCommand();
+                msqlCommand.Connection = msqlConnection;
+
+                msqlCommand.CommandText = "DELETE FROM excredit WHERE id=@expenseToDelete";
+                msqlCommand.Parameters.AddWithValue("@expenseToDelete", expenseToDelete);
+
+                MySql.Data.MySqlClient.MySqlDataReader msqlReader = msqlCommand.ExecuteReader();
+
+            }
+            catch (Exception er)
+            {
+            }
+            finally
+            {
+                //always close the connection
+                msqlConnection.Close();
+            }
+        }
+
+        #endregion
 
         #endregion
 
@@ -319,6 +346,7 @@ namespace ExpenseManagerDb
             return AllAddressList;
 
         }
+
         #region Delete Address
 
         public static void DeleteAddress(string addressToDelete)

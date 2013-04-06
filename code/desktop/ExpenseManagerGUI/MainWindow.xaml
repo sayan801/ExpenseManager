@@ -80,7 +80,7 @@
             <Label></Label>
         </UniformGrid>-->
         <TabControl Name="viewTabControl" TabStripPlacement="Right" SelectedIndex="2">
-            <TabItem Header="Calender" Name="calenderTabItem"  MouseRightButtonDown="click_MouseLeftButtonDown">
+            <TabItem Header="Calender" Name="calenderTabItem"  >
                 <DockPanel>
                     <UniformGrid DockPanel.Dock="Left">
                         <my:CalenderControl />
@@ -103,7 +103,8 @@
             <TabItem Header="List" Name="listTabItem">
                 <DockPanel LastChildFill="True">
                     <UniformGrid DockPanel.Dock="Bottom" Rows="1">
-                        <Button  Style="{StaticResource MainBtnStyle}" >Delete</Button>
+                        <Button Name="refreshDetailsBtn" Style="{StaticResource MainBtnStyle}" Click="refreshDetailsBtn_Click">Refresh</Button>
+                        <Button Name="deleteExpnseBtn" Style="{StaticResource MainBtnStyle}" Click="deleteExpnseBtn_Click">Delete</Button>
                         <Button  Style="{StaticResource MainBtnStyle}" >Edit</Button>
                     </UniformGrid>
                 <UniformGrid DockPanel.Dock="Top">
