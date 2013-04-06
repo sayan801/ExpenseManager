@@ -19,11 +19,11 @@
                         <TextBox Style="{StaticResource textboxStyle}"></TextBox>
                         <Button Style="{StaticResource MainBtnStyle}">Search</Button>
                         <Button Style="{StaticResource MainBtnStyle}">Edit</Button>
-                        <Button Style="{StaticResource MainBtnStyle}">Delete</Button>
+                        <Button Name="delAddress" Style="{StaticResource MainBtnStyle}" Click="delAddress_Click">Delete</Button>
                     </UniformGrid>
                     
                     <UniformGrid DockPanel.Dock="Top">
-                        <ListView Name="contactView" HorizontalAlignment="Stretch" Style="{StaticResource ListViewStyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding addressCollection}" Loaded="Window_Loaded">
+                        <ListView Name="addressView" HorizontalAlignment="Stretch" Style="{StaticResource ListViewStyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding addressCollection}" Loaded="Window_Loaded">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Width="180" Header="Name" DisplayMemberBinding="{Binding name}" />

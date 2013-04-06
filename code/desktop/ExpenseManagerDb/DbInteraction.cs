@@ -319,6 +319,35 @@ namespace ExpenseManagerDb
             return AllAddressList;
 
         }
+        #region Delete Address
+
+        public static void DeleteAddress(string addressToDelete)
+        {
+            MySql.Data.MySqlClient.MySqlConnection msqlConnection = OpenDbConnection();
+
+            try
+            {   //define the command reference
+                MySql.Data.MySqlClient.MySqlCommand msqlCommand = new MySql.Data.MySqlClient.MySqlCommand();
+                msqlCommand.Connection = msqlConnection;
+
+                msqlCommand.CommandText = "DELETE FROM address WHERE id=@addressToDelete";
+                msqlCommand.Parameters.AddWithValue("@addressToDelete", addressToDelete);
+
+                MySql.Data.MySqlClient.MySqlDataReader msqlReader = msqlCommand.ExecuteReader();
+
+            }
+            catch (Exception er)
+            {
+            }
+            finally
+            {
+                //always close the connection
+                msqlConnection.Close();
+            }
+        }
+
+        #endregion
+
         #endregion
     }
 }

@@ -79,5 +79,36 @@ namespace ExpenseManagerGUI
                 _addressCollection.Add(address);
             }
         }
+
+
+
+        private AddressInfo GetSelectedAddressItem()
+        {
+
+            AddressInfo addressToDelete = null;
+
+            if (addressView.SelectedIndex == -1)
+                MessageBox.Show("Please Select an Item");
+            else
+            {
+                AddressInfo i = (AddressInfo)addressView.SelectedItem;
+
+                //addressToDelete = _addressCollection.Where(item => item.id.Equals(i.id)).First();
+                addressToDelete = _addressCollection.Where(item => item.id.Equals(i.id)).First();
+            }
+
+            return addressToDelete;
+        }
+        private void delAddress_Click(object sender, RoutedEventArgs e)
+        {
+            AddressInfo addressToDelete = GetSelectedAddressItem();
+            if (addressToDelete != null)
+            {
+                _addressCollection.Remove(addressToDelete);
+                ExpenseManagerDb.DbInteraction.DeleteAddress(addressToDelete.id);
+                fetchAddressData();
+
+            }
+        }
     }
 }
