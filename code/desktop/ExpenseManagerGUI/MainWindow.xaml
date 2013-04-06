@@ -105,7 +105,7 @@
                     <UniformGrid DockPanel.Dock="Bottom" Rows="1">
                         <Button Name="refreshDetailsBtn" Style="{StaticResource MainBtnStyle}" Click="refreshDetailsBtn_Click">Refresh</Button>
                         <Button Name="deleteExpnseBtn" Style="{StaticResource MainBtnStyle}" Click="deleteExpnseBtn_Click">Delete</Button>
-                        <Button  Style="{StaticResource MainBtnStyle}" >Edit</Button>
+                        <Button Name="editExpenseBtn" Style="{StaticResource MainBtnStyle}" Click="editExpenseBtn_Click">Edit</Button>
                     </UniformGrid>
                 <UniformGrid DockPanel.Dock="Top">
                     <ListView Background="DarkOliveGreen" Name="listDataLV" Foreground="White" ItemsSource="{Binding incomeExpenseCollection}">

@@ -17,6 +17,8 @@ using ExpenseManagerDb;
 using System.Collections.ObjectModel;
 using Microsoft.Research.DynamicDataDisplay;
 using Microsoft.Research.DynamicDataDisplay.DataSources;
+using System.Collections.ObjectModel;
+using ExpenseManagerData;
 
 namespace ExpenseManagerGUI
 {
@@ -58,12 +60,7 @@ namespace ExpenseManagerGUI
             NewDetailsWindowObj.Show();
         }
 
-        private void newDetailsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //this.WindowState = System.Windows.WindowState.Minimized;
-            ExpenseManagerGUI.NewDetailsWindow NewDetailsWindowObj = new ExpenseManagerGUI.NewDetailsWindow();
-            NewDetailsWindowObj.Show();
-        }
+        
 
 
         private void closeMenuItem_Click(object sender, RoutedEventArgs e)
@@ -284,6 +281,18 @@ namespace ExpenseManagerGUI
 
             }
         }
+
+        private void editExpenseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ExpenseInfo expenseToEdit = GetSelectedExpenseItem();
+            if (expenseToEdit != null)
+            {
+                ExpenseManagerGUI.NewDetailsWindow NewDetailsWindowobj = new ExpenseManagerGUI.NewDetailsWindow(expenseToEdit);
+                NewDetailsWindowobj.Show();
+            }
+        }
+
+       
 
         //private void plotDetails_Click(object sender, RoutedEventArgs e)
         //{

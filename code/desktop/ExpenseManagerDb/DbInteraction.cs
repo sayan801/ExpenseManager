@@ -217,6 +217,34 @@ namespace ExpenseManagerDb
             return ExcreditList;
         }
 
+
+        public static void EditExpense(ExpenseInfo expenseToEdit)
+        {
+            MySql.Data.MySqlClient.MySqlConnection msqlConnection = OpenDbConnection();
+
+            try
+            {   //define the command reference
+                MySql.Data.MySqlClient.MySqlCommand msqlCommand = new MySql.Data.MySqlClient.MySqlCommand();
+                msqlCommand.Connection = msqlConnection;
+
+                msqlCommand.CommandText = "UPDATE excredit SET date=@date,type=@type,description=@description,amount=@amount WHERE id=@id";
+                msqlCommand.Parameters.AddWithValue("@date", expenseToEdit.date);
+                msqlCommand.Parameters.AddWithValue("@type", expenseToEdit.type);
+                msqlCommand.Parameters.AddWithValue("@description", expenseToEdit.description);
+                msqlCommand.Parameters.AddWithValue("@amount", expenseToEdit.amount);
+                msqlCommand.Parameters.AddWithValue("@id", expenseToEdit.id);
+                msqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception er)
+            {
+            }
+            finally
+            {
+                //always close the connection
+                msqlConnection.Close();
+            }
+        }
+
         #region Delete Expense
 
         public static void DeleteExpense(string expenseToDelete)

@@ -19,9 +19,25 @@ namespace ExpenseManagerGUI
     /// </summary>
     public partial class NewDetailsWindow : Window
     {
-        public NewDetailsWindow()
+        string expenseId;
+        bool isEdit = false;
+
+        public NewDetailsWindow(ExpenseManagerData.ExpenseInfo info)
         {
             InitializeComponent();
+
+            if (info != null)
+            {
+                isEdit = true;
+
+
+                typeCB.Text = info.type.ToString();
+                dateDP.SelectedDate = info.date;
+                descritptionTB.Text = info.description;
+                amountTB.Text = info.amount.ToString();
+
+                expenseId = info.id;
+            }
         }
 
         private void cancleBtn_Click(object sender, RoutedEventArgs e)
@@ -40,11 +56,21 @@ namespace ExpenseManagerGUI
             newExcredit.amount = Convert.ToDouble(amountTB.Text);
 
 
-            ExpenseManagerDb.DbInteraction.DoRegisterNewExcredit(newExcredit);
+            
+
+            if (isEdit == false)
+            {
+                newExcredit.id = GenerateId();
+                ExpenseManagerDb.DbInteraction.DoRegisterNewExcredit(newExcredit);
+            }
+            else
+            {
+                newExcredit.id = expenseId;
+                ExpenseManagerDb.DbInteraction.EditExpense(newExcredit);
+            }
 
             this.Close();
             
-
         }
 
         private string GenerateId()
