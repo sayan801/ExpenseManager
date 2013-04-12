@@ -56,8 +56,8 @@ namespace ExpenseManagerGUI
         private void newDetailsMBtn_Click(object sender, RoutedEventArgs e)
         {
             //this.WindowState = System.Windows.WindowState.Minimized;
-            ExpenseManagerGUI.NewDetailsWindow NewDetailsWindowObj = new ExpenseManagerGUI.NewDetailsWindow();
-            NewDetailsWindowObj.Show();
+            //ExpenseManagerGUI.NewDetailsWindow NewDetailsWindowObj = new ExpenseManagerGUI.NewDetailsWindow();
+            //NewDetailsWindowObj.Show();
         }
 
         

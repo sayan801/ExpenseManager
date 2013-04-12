@@ -43,7 +43,7 @@
 
         </Menu>
         <ToolBar Height="40" DockPanel.Dock="Top" Background="Transparent">
-            <Button Name="newDetailsBtn" Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" Click="newDetailsBtn_Click" >New Details</Button>
+            <Button Name="newDetailsBtn" Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" >New Details</Button>
             <Separator></Separator>
             <Button Name="calculatorBtn" Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" Click="calculatorBtn_Click">Calculator</Button>
             <Separator></Separator>

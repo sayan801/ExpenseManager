@@ -26,6 +26,7 @@
                         <ListView Name="addressView" HorizontalAlignment="Stretch" Style="{StaticResource ListViewStyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding addressCollection}" Loaded="Window_Loaded">
                             <ListView.View>
                                 <GridView>
+                                    <GridViewColumn Width="0" Header="Id" DisplayMemberBinding="{Binding id}" />
                                     <GridViewColumn Width="180" Header="Name" DisplayMemberBinding="{Binding name}" />
                                     <GridViewColumn Width="150" Header="Mobile" DisplayMemberBinding="{Binding mobile}"  />
                                     <GridViewColumn Width="150" Header="Home"  DisplayMemberBinding="{Binding home}"  />

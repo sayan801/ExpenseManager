@@ -348,7 +348,7 @@ namespace ExpenseManagerDb
                 {
                     AddressInfo Address = new AddressInfo();
 
-                    
+                    Address.id = msqlReader.GetString("id");
                     Address.name = msqlReader.GetString("name");
                     Address.mobile = msqlReader.GetString("mobile");
                     Address.home = msqlReader.GetString("home");
