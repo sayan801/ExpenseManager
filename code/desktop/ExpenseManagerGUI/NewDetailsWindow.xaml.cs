@@ -55,7 +55,8 @@ namespace ExpenseManagerGUI
             newExcredit.description = descritptionTB.Text;
             newExcredit.amount = Convert.ToDouble(amountTB.Text);
 
-
+            //ExpenseManagerGUI.MainWindow objMainWindow = new ExpenseManagerGUI.MainWindow();
+            //objMainWindow.showIncomeExpenseDetails();
             
 
             if (isEdit == false)

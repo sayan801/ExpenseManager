@@ -19,6 +19,7 @@ using Microsoft.Research.DynamicDataDisplay;
 using Microsoft.Research.DynamicDataDisplay.DataSources;
 using System.Collections.ObjectModel;
 using ExpenseManagerData;
+//using ExpenseManagerDb;
 
 namespace ExpenseManagerGUI
 {
@@ -56,8 +57,10 @@ namespace ExpenseManagerGUI
         private void newDetailsMBtn_Click(object sender, RoutedEventArgs e)
         {
             //this.WindowState = System.Windows.WindowState.Minimized;
-            //ExpenseManagerGUI.NewDetailsWindow NewDetailsWindowObj = new ExpenseManagerGUI.NewDetailsWindow();
-            //NewDetailsWindowObj.Show();
+           //NewDetailsWindow NewDetailsWindowObj = new NewDetailsWindow();
+          //  NewDetailsWindowObj.Show();
+            ExpenseManagerGUI.NewDetailsWindow NewDetailsWindowobj = new ExpenseManagerGUI.NewDetailsWindow(null);
+                NewDetailsWindowobj.Show();
         }
 
         
@@ -291,6 +294,7 @@ namespace ExpenseManagerGUI
                 NewDetailsWindowobj.Show();
             }
         }
+
 
        
 
