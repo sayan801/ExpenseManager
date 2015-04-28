@@ -57,7 +57,7 @@
             <Separator></Separator>
             <Button Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}">Mobile Sync</Button>
             <Separator></Separator>
-            <Button Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}">Web Sync</Button>
+            <Button Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}" Click="Button_Click_2">Web Sync</Button>
             <Separator></Separator>
             <Button Margin="5"  FontSize="12" Height="25" Style="{StaticResource MainBtnStyle}">Save Report</Button>
         </ToolBar>
